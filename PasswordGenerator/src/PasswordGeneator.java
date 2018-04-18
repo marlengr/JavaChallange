@@ -7,7 +7,7 @@ public class PasswordGeneator {
 
 	private String password;
 	private StringBuilder sb;
-	private int number;
+	private int number, number2;
 	private List<Integer> list;
 
 	public PasswordGeneator() {
@@ -22,6 +22,7 @@ public class PasswordGeneator {
 		Scanner scanner = new Scanner(System.in);
 		String number2 = scanner.nextLine();
 		number = Integer.parseInt(number2);
+		scanner.close();
 		return number;
 		
 	}
@@ -32,9 +33,11 @@ public class PasswordGeneator {
 		}
 		
 		for(int i = 0; i<number; i++) {
-			number = list.get(new SecureRandom().nextInt(94));
-			sb.append((char) number);
+			number2 = list.get(new SecureRandom().nextInt(94));
+			sb.append((char) number2);
+			
 		}
+		// get pozwala odczytaæ element o wskazanym indeksie
 		// append ³¹czy ze soba znaki 
 		
 		password = sb.toString();
